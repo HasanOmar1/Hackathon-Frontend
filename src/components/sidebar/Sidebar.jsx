@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 // import 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css';
 
-const App = () => {
+const Sidebar = () => {
   const [submenuHidden, setSubmenuHidden] = useState(false);
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
@@ -29,7 +29,7 @@ const App = () => {
         <div className="text-gray-100 text-xl">
           <div className="p-2.5 mt-1 flex items-center">
              <h1 className="font-bold text-gray-200 text-[15px] ml-3">
-              TailwindCSS
+              Digital Lawyer AI 
             </h1>
  
           </div>
@@ -66,7 +66,7 @@ const App = () => {
           }`}
         >
           <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Social
+            Cases for 
           </h1>
           <h1 className="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
             Personal
@@ -81,4 +81,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Sidebar;
