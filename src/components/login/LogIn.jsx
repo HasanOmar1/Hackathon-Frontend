@@ -6,7 +6,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link } from 'react-router-dom';
 import { useLogInContext } from '../context/LoginContext';
 function LogIn() {
-    const paperStyle = { padding: 20,height:'70vh',width:280, margin:'20px auto' }
+    const paperStyle = { padding: 20,height:'70vh',width:310, margin:'20px auto' }
     const avatarStyle = {backgroundColor:'green'}
     const btnStyle = {margin:'8px 0'}
     const {currentUser,setCurrentUser,logIn,createUser} = useLogInContext();
@@ -24,6 +24,7 @@ function LogIn() {
         await logIn(user);
     }
     return (
+        <main className='loginPage'>
         <div className='login-container'>
             {/* <h1>Log In</h1> */}
             <Paper elevation={10} style={paperStyle} >
@@ -39,13 +40,14 @@ function LogIn() {
                 </section>
                 </form>
                 
-                <Typography>Do you have an account? <Link href="#" > Sign Up</Link>
+                <Typography>Do you have an account? <Link to='/signup'> Sign Up</Link>
 
                 </Typography>
 
             </Paper>
 
         </div>
+        </main>
     )
 }
 

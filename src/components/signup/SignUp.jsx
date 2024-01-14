@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useLogInContext } from '../context/LoginContext';
 
 function SignUp() {
-    const paperStyle = { padding: 20, height: '70vh', width: 280, margin: '20px auto' }
+    const paperStyle = { padding: 20, height: '75vh', width: 310, margin: '20px auto' }
     const avatarStyle = { backgroundColor: 'green' }
     const btnStyle = { margin: '8px 0' }
 
@@ -29,6 +29,7 @@ function SignUp() {
         await createUser(user);
     };
     return (
+        <main className='signUpPage'>
         <div className='signUp-container'>
             {/* <h1>Log In</h1> */}
             <Paper elevation={10} style={paperStyle} >
@@ -44,13 +45,14 @@ function SignUp() {
                         <Button type='submit' color='success' variant='contained' style={btnStyle} fullWidth>Sign up</Button>
                     </section>
                 </form>
-                <Typography>Already  have an account? <Link href="#" > Sign In</Link>
+                <Typography>Already  have an account? <Link to='/' > Sign In</Link>
 
                 </Typography>
 
             </Paper>
 
         </div>
+        </main>
     )
 }
 
