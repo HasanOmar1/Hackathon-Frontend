@@ -26,16 +26,16 @@ function SignUp() {
     }
   }, [errMsg]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const user = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      password: formData.get("password"),
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const user = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            password: formData.get("password"),
+        };
+        await createUser(user);
     };
-    await createUser(user);
-  };
   return (
     <main className="signUpPage">
       <div className="signUp-container">
@@ -83,7 +83,7 @@ function SignUp() {
             </section>
           </form>
           <Typography>
-            Already have an account? <Link to="/"> Sign In</Link>
+            Already have an account? <Link to="/"><span className="sp">Sign In</span></Link>
           </Typography>
         </Paper>
         <ErrorModal ref={errorRef} />

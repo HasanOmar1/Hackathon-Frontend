@@ -24,7 +24,6 @@ function LogIn() {
     if (errMsg) {
       errorRef?.current?.showModal();
     }
-
   }, [errMsg]);
 
   const handleSubmit = async (e) => {
@@ -80,7 +79,7 @@ function LogIn() {
           </form>
 
           <Typography>
-            Do you have an account? <Link to="/signup"> Sign Up</Link>
+            Do you have an account? <Link to="/signup"><span className="sp">Sign Up</span> </Link>
           </Typography>
         </Paper>
         <ErrorModal ref={errorRef} />
