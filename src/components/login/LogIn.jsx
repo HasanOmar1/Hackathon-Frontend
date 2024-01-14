@@ -24,7 +24,13 @@ function LogIn() {
     if (errMsg) {
       errorRef?.current?.showModal();
     }
+<<<<<<< HEAD
   }, [errMsg]);
+=======
+
+  }, [errMsg]);
+
+>>>>>>> e4800c43a25b79b051f963ea4fae74bf3eae4ab5
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

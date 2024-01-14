@@ -36,6 +36,7 @@ function SignUp() {
         };
         await createUser(user);
     };
+<<<<<<< HEAD
     return (
         <main className='signUpPage'>
         <div className='signUp-container'>
@@ -62,6 +63,64 @@ function SignUp() {
         </div>
         </main>
     )
+=======
+    await createUser(user);
+  };
+  return (
+    <main className="signUpPage">
+      <div className="signUp-container">
+        {/* <h1>Log In</h1> */}
+        <Paper elevation={10} style={paperStyle}>
+          <Grid align="center">
+            <Avatar style={avatarStyle}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <h2>Sign Up</h2>
+          </Grid>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <section className="inputs">
+              <TextField
+                name="name"
+                label="Name"
+                placeholder="Enter name"
+                fullWidth
+                required
+              />
+              <TextField
+                name="email"
+                label="Email"
+                placeholder="Enter Email"
+                fullWidth
+                required
+              />
+              <TextField
+                name="password"
+                label="Password"
+                placeholder="Enter Password"
+                type="password"
+                fullWidth
+                required
+              />
+              <Button
+                type="submit"
+                color="success"
+                variant="contained"
+                style={btnStyle}
+                fullWidth
+              >
+                Sign up
+              </Button>
+            </section>
+          </form>
+          <Typography>
+            Already have an account? <Link to="/"> Sign In</Link>
+          </Typography>
+        </Paper>
+        <ErrorModal ref={errorRef} />
+      </div>
+    </main>
+  );
+>>>>>>> e4800c43a25b79b051f963ea4fae74bf3eae4ab5
 }
 
 export default SignUp;
