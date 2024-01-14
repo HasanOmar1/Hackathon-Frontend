@@ -7,6 +7,7 @@ import LogIn from "./components/login/LogIn.jsx";
 import SignUp from "./components/signup/SignUp.jsx";
 import { LoginProvider } from "./components/context/LoginContext.jsx";
 import Sidebar from "./components/sidebar/Sidebar";
+import Main from "./pages/main/Main";
 function App() {
 
   return (
@@ -15,14 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/sidebar" element={<Sidebar/>}></Route>
-
-
-    
-    
-
-      <Chatbox/>
-  
+        <Route path="/main" element={<Main/>}></Route>
 
       </Routes>
       </LoginProvider>
