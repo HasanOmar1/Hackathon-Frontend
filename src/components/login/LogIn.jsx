@@ -24,6 +24,7 @@ function LogIn() {
     if (errMsg) {
       errorRef?.current?.showModal();
     }
+
   }, [errMsg]);
 
   const handleSubmit = async (e) => {
