@@ -1,30 +1,38 @@
-import React, { useRef } from 'react'
-import '../signup/SignUp.css'
-import Paper from '@mui/material/Paper';
-import '../login/LogIn.css'
-import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Link } from 'react-router-dom';
-import { useLogInContext } from '../context/LoginContext';
+import React, { useEffect, useRef } from "react";
+import Paper from "@mui/material/Paper";
+import { Avatar, Button, Grid, TextField, Typography } from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Link } from "react-router-dom";
+import { useLogInContext } from "../context/LoginContext";
+import "./SignUp.css";
+import ErrorModal from "../Modals/ErrorMsg";
 
 function SignUp() {
-    const paperStyle = { padding: 20, height: '75vh', width: 310, margin: '20px auto' }
-    const avatarStyle = { backgroundColor: 'green' }
-    const btnStyle = { margin: '8px 0' }
+  const errorRef = useRef();
+  const { createUser, errMsg } = useLogInContext();
 
-    // const emailRef = useRef();
-    // const passRef = useRef();
-    // const nameRef = useRef();
+  const paperStyle = {
+    padding: 20,
+    height: "75vh",
+    width: 310,
+    margin: "20px auto",
+  };
+  const avatarStyle = { backgroundColor: "green" };
+  const btnStyle = { margin: "8px 0" };
 
-    const { currentUser, setCurrentUser, logIn, createUser } = useLogInContext()
+  useEffect(() => {
+    if (errMsg) {
+      errorRef?.current?.showModal();
+    }
+  }, [errMsg]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const user = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            password: formData.get('password'),
+            name: formData.get("name"),
+            email: formData.get("email"),
+            password: formData.get("password"),
         };
         await createUser(user);
     };
@@ -45,7 +53,7 @@ function SignUp() {
                         <Button type='submit' color='success' variant='contained' style={btnStyle} fullWidth>Sign up</Button>
                     </section>
                 </form>
-                <Typography>Already  have an account? <Link to='/'><span className='sp'>Sign In</span></Link>
+                <Typography>Already  have an account? <Link to='/' > Sign In</Link>
 
                 </Typography>
 
@@ -56,4 +64,4 @@ function SignUp() {
     )
 }
 
-export default SignUp
+export default SignUp;

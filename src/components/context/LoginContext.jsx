@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 const LoginContext = createContext();
 
 function LoginProvider({ children }) {
-    const [currentUser, setCurrentUser] = useState({});
-    const navigate  = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
 
     const logIn = async (user) => {
         try {
@@ -22,24 +23,36 @@ function LoginProvider({ children }) {
         }
 
     }
+  };
 
-    const createUser = async (user) => {
-        try {
-
-            const res = await axios.post('https://hackathon-backend-biy0.onrender.com/api/v1/users/create', user)
-            console.log(res.data)
-            navigate('/')
-        } catch (error) {
-            console.log(error)
-        }
-
+  const createUser = async (user) => {
+    try {
+      const res = await axios.post(
+        "https://hackathon-backend-biy0.onrender.com/api/v1/users/create",
+        user
+      );
+      console.log(res.data);
+      navigate("/");
+    } catch (error) {
+      setErrMsg(error.response.data.message);
+      console.log(error.response.data.message);
     }
+  };
 
-    return (
-        <LoginContext.Provider value={{ currentUser,setCurrentUser,logIn,createUser }}>
-            {children}
-        </LoginContext.Provider>
-    );
-}
+  return (
+    <LoginContext.Provider
+      value={{
+        currentUser,
+        setCurrentUser,
+        logIn,
+        createUser,
+        errMsg,
+        setErrMsg,
+}}
+    >
+      {children}
+    </LoginContext.Provider>
+  );
+
 export const useLogInContext = ()=> useContext(LoginContext);
 export { LoginProvider }
