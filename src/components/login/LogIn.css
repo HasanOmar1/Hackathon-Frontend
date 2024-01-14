@@ -1,0 +1,11 @@
+.login-container{
+    display: flex;
+    align-items: center;
+    /* background-color: #040220; */
+}
+.inputs{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 8px;
+}
