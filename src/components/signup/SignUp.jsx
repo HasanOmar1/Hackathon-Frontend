@@ -45,7 +45,7 @@ function SignUp() {
                         <Button type='submit' color='success' variant='contained' style={btnStyle} fullWidth>Sign up</Button>
                     </section>
                 </form>
-                <Typography>Already  have an account? <Link to='/' > Sign In</Link>
+                <Typography>Already  have an account? <Link to='/'><span className='sp'>Sign In</span></Link>
 
                 </Typography>
 

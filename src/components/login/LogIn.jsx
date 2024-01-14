@@ -40,7 +40,7 @@ function LogIn() {
                 </section>
                 </form>
                 
-                <Typography>Do you have an account? <Link to='/signup'> Sign Up</Link>
+                <Typography>Do you have an account? <Link to='/signup'><span className='sp'>Sign Up</span></Link>
 
                 </Typography>
 
