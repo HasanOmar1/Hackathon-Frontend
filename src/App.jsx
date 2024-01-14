@@ -1,16 +1,16 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Chatbox from "./components/Chatbox";
 function App() {
 
-  function func(){
-    console.log('hanan')
-  }
   return (
     <>
 
     
-      <Routes>{/* <Route  /> */}
-      </Routes>
+    
+
+      <Chatbox/>
+  
     </>
   );
 }
