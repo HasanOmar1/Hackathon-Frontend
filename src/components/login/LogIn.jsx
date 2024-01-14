@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Paper from '@mui/material/Paper';
  import '../login/LogIn.css'
 import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Link } from 'react-router-dom';
+import { useLogInContext } from '../context/LoginContext';
 function LogIn() {
     const paperStyle = { padding: 20,height:'70vh',width:280, margin:'20px auto' }
     const avatarStyle = {backgroundColor:'green'}
     const btnStyle = {margin:'8px 0'}
+    const {currentUser,setCurrentUser,logIn,createUser} = useLogInContext();
+    const emailRef = useRef();
+    const passRef = useRef();
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const user = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+        
+        await logIn(user);
+    }
     return (
         <div className='login-container'>
             {/* <h1>Log In</h1> */}
@@ -16,11 +31,14 @@ function LogIn() {
                 <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                 <h2>Sign In</h2>
                 </Grid>
+                <form onSubmit={(e)=>handleSubmit(e)}>
                 <section className='inputs'>
-                <TextField label='email' placeholder='Enter Email' fullWidth required/>
-                <TextField label='password' placeholder='Enter Password' type='password' fullWidth required/>
+                <TextField name='email' label='email' placeholder='Enter Email' fullWidth required ref={emailRef}/>
+                <TextField name='password'label='password' placeholder='Enter Password' type='password' fullWidth required ref={passRef}/>
                 <Button type='submit' color='success' variant='contained' style={btnStyle} fullWidth>Sign in</Button>
                 </section>
+                </form>
+                
                 <Typography>Do you have an account? <Link href="#" > Sign Up</Link>
 
                 </Typography>
