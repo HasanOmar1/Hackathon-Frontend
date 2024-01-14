@@ -1,5 +1,6 @@
 import React , {useState,useEffect} from 'react'
-import { TextField, IconButton, Container, Paper ,Grid} from '@mui/material';
+import { TextField, IconButton, Container, Paper ,Grid } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 
 
 import './chatbox.css'
@@ -9,6 +10,7 @@ export default function Chatbox() {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
 
+    
 
  const handleUserMessage = async() => {
         if (input.trim() === '') return;
@@ -55,7 +57,7 @@ export default function Chatbox() {
     <div>
  <Container maxWidth="md" className="chatbox-container">
         <Paper elevation={3} className="chatbox-paper">
-            <div>Hello there , I am the degital Lower, coud you explain what happend with you </div>
+            <div className='wellcoming'>Hi! Im the digital lawyer , please start the chat here ✍️</div>
         <div id="message-container" className="message-container">
             {messages.map((message, index) => (
               <Grid key={index} container justifyContent={message.type === 'user' ? 'flex-end' : 'flex-start'}>
@@ -63,7 +65,14 @@ export default function Chatbox() {
                   <Paper
                     elevation={3}
                     className={`message ${message.type === 'user' ? 'user-message' : 'ai-message'}`}
+                    style={{
+                      backgroundColor: message.type === 'user' ? '#082567' : 'white',
+                      color: message.type === 'ai-massage' ?  '#082567':'white', // Text color
+                      padding:'10px',
+                      borderRadius:'10px'
+                    }}
                   >
+                    
                     {message.text}
                   </Paper>
                 </Grid>
@@ -80,8 +89,8 @@ export default function Chatbox() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
-            <IconButton className="send-button" color="primary" onClick={handleUserMessage}>
-             send
+            <IconButton  style={{ color: '#082567' }} onClick={handleUserMessage}>
+              <SendIcon />
             </IconButton>
           </div>
         </Paper>
