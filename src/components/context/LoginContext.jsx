@@ -7,7 +7,6 @@ function LoginProvider({ children }) {
   const [currentUser, setCurrentUser] = useState({});
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
-<<<<<<< HEAD
 
     const logIn = async (user) => {
         try {
@@ -22,12 +21,10 @@ function LoginProvider({ children }) {
         } catch (error) {
             console.log(error.response.data.message)
         }
-=======
->>>>>>> e4800c43a25b79b051f963ea4fae74bf3eae4ab5
+
+
 
     }
-  };
-
   const createUser = async (user) => {
     try {
       const res = await axios.post(
@@ -56,6 +53,7 @@ function LoginProvider({ children }) {
       {children}
     </LoginContext.Provider>
   );
+}
 
 export const useLogInContext = ()=> useContext(LoginContext);
 export { LoginProvider }
