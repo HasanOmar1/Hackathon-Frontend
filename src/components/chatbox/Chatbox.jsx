@@ -1,6 +1,7 @@
 import React , {useState,useEffect} from 'react'
 import { TextField, IconButton, Container, Paper ,Grid } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import axios from 'axios';
 
 
 import './chatbox.css'
@@ -9,8 +10,10 @@ export default function Chatbox() {
 
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+  
+    const [isLoading, setIsLoading] = useState(false);
 
-    
+  
 
  const handleUserMessage = async() => {
         if (input.trim() === '') return;
@@ -18,16 +21,14 @@ export default function Chatbox() {
         // User response
         setMessages([...messages, { text: input, type: 'user' }]);
         setInput('');
-    
+        setIsLoading(true);
+
         try {
-          // Send the user message to the server and await the response
-          const response = await fetch('server-endpoint', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: input }),
+          const response = await axios.post('https://hackathon-backend-biy0.onrender.com/api/v1/chat', {
+            message: input,
+            language: 'arabic',
           });
+       
     
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -39,6 +40,7 @@ export default function Chatbox() {
           // Add the AI's response to the local state
           const newAiMessage = { text: answer, type: 'ai' };
           setMessages([...messages, newAiMessage]);
+          setIsLoading(false);
         } catch (error) {
           console.error('Error sending/receiving messages:', error);
         }
@@ -55,6 +57,7 @@ export default function Chatbox() {
     
   return (
     <div>
+     
  <Container maxWidth="md" className="chatbox-container">
         <Paper elevation={3} className="chatbox-paper">
             <div className='wellcoming'>Hi! Im the digital lawyer , please start the chat here ✍️</div>
@@ -78,6 +81,7 @@ export default function Chatbox() {
                 </Grid>
               </Grid>
             ))}
+             {isLoading && <div className='typing'>Lower is typing...</div>}
           </div>
           <div className="input-container">
             <TextField
@@ -85,7 +89,7 @@ export default function Chatbox() {
               multiline
               maxRows={5}
               variant="outlined"
-              label="Talk with Digital Lower"
+              label="Chat with Digital Lower"
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
@@ -95,7 +99,7 @@ export default function Chatbox() {
           </div>
         </Paper>
       </Container>
-
+      
 
     </div>
   )
