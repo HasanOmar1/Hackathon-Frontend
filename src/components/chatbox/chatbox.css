@@ -42,3 +42,12 @@
   .wellcoming{
     color: rgb(5, 5, 81);
   }
+.typing{
+  text-align: 'right';
+  color: '#aaa';
+  font-style: 'italic';
+  
+}
+.bg{
+  background-color: aquamarine;
+}
