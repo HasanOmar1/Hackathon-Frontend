@@ -88,10 +88,17 @@ export default function Chatbox() {
               name="options"
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
+              className="options"
             >
-              <option value="English">English</option>
-              <option value="Hebrew">Hebrew</option>
-              <option value="Arabic">Arabic</option>
+              <option value="English" className="options">
+                English
+              </option>
+              <option value="Hebrew" className="options">
+                Hebrew
+              </option>
+              <option value="Arabic" className="options">
+                Arabic
+              </option>
             </select>
             <button onClick={handleSubmit} style={styles.sendButton}>
               Send

@@ -31,3 +31,7 @@
   padding: 10px;
 }
   
+option:focus , select:focus{
+
+  outline: none;
+}
