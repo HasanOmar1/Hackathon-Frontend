@@ -10,7 +10,8 @@ function LogIn() {
   const paperStyle = {
     padding: 20,
     height: "70vh",
-    width: 310,
+    paddingTop:"30px",
+    width: "400px",
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "green" };

@@ -46,6 +46,7 @@ export default function Chatbox() {
   return (
     <div className="whole-container">
       <div style={styles.container} className="big-container">
+        <div className="responsive">
         <div style={styles.chatContainer}>
           <h1 style={styles.title}>Digital Lawyer</h1>
           <h3 className="logged-user">
@@ -97,6 +98,7 @@ export default function Chatbox() {
               Send
             </button>
           </div>
+        </div>
         </div>
       </div>
     </div>

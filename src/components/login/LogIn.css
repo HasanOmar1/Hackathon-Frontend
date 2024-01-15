@@ -12,6 +12,7 @@
 }
 .loginPage{
     background-color: #1a202c;
+    padding-top: 40px;
     width: 100vw;
     height: 100vh;
 }
