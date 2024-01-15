@@ -26,7 +26,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="bg-blue-600">
+    <div className="bg-blue-600 sidebar-container">
       <span
         className="absolute text-white text-4xl top-5 left-4 cursor-pointer"
         onClick={toggleSidebar}
@@ -38,7 +38,7 @@ const Sidebar = () => {
       >
         <div className="text-gray-100 text-xl">
           <div className="p-2.5 mt-1 flex items-center">
-            <h1 className="font-bold text-gray-200 text-[15px] ml-3">
+            <h1 className="font-bold text-gray-200 text-[15px] ml-3 lawyer-title">
               Digital Lawyer AI
             </h1>
           </div>

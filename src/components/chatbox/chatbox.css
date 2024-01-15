@@ -1,18 +1,41 @@
+.big-container{
 
-  
-  .chatbox-container {
+  /* width: 500px; */
+  margin-left: 15%;
+
+}
+
+.answer{
+  background-color: #082567;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+}
+
+.welcoming{
+  padding-bottom: 10px;
+}
+
+.roles{
+  /* background-color: rgb(0, 0, 0); */
+  border-radius: 10px;
+  padding: 10px;
+}
+  /*  */
+
+  /* .chatbox-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 80px;
    
-  }
+  } */
   
-  .chatbox-paper {
+  /* .chatbox-paper {
     height: 600px;
     width: 100%;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 800px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -20,16 +43,16 @@
     justify-content: flex-end; 
     margin-left: 180px;
     
-  }
+  } */
   
-  .message-container {
+  /* .message-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-height: 300px;
     overflow-y: auto;
-  }
-  
+  } */
+/*   
   .input-container {
     display: flex;
     gap: 10px;
@@ -50,4 +73,4 @@
 }
 .bg{
   background-color: aquamarine;
-}
+} */
