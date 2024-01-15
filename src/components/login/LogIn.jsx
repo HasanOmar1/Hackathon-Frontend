@@ -79,7 +79,10 @@ function LogIn() {
           </form>
 
           <Typography>
-            Do you have an account? <Link to="/signup"><span className="sp">Sign Up</span> </Link>
+            Do you have an account?{" "}
+            <Link to="/signup">
+              <span className="sp">Sign Up</span>{" "}
+            </Link>
           </Typography>
         </Paper>
         <ErrorModal ref={errorRef} />
