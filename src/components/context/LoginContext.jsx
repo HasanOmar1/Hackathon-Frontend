@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const LoginContext = createContext();
 
 function LoginProvider({ children }) {
@@ -8,23 +8,22 @@ function LoginProvider({ children }) {
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
 
-    const logIn = async (user) => {
-        try {
-
-            const res = await axios.post('https://hackathon-backend-biy0.onrender.com/api/v1/users/login', user)
-            console.log(res.data)
-            localStorage.setItem('token',res.data.token);
-            localStorage.setItem("user", JSON.stringify(res.data));
-            setCurrentUser(res.data)
-            navigate('/main')
-            
-        } catch (error) {
-            console.log(error.response.data.message)
-        }
-
-
-
+  const logIn = async (user) => {
+    try {
+      const res = await axios.post(
+        "https://hackathon-backend-biy0.onrender.com/api/v1/users/login",
+        user
+      );
+      console.log(res.data);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data));
+      setCurrentUser(res.data);
+      navigate("/main");
+    } catch (error) {
+      setErrMsg(error.response.data.message);
+      console.log(error.response.data.message);
     }
+  };
   const createUser = async (user) => {
     try {
       const res = await axios.post(
@@ -48,12 +47,12 @@ function LoginProvider({ children }) {
         createUser,
         errMsg,
         setErrMsg,
-}}
+      }}
     >
       {children}
     </LoginContext.Provider>
   );
 }
 
-export const useLogInContext = ()=> useContext(LoginContext);
-export { LoginProvider }
+export const useLogInContext = () => useContext(LoginContext);
+export { LoginProvider };
