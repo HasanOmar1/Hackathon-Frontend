@@ -45,9 +45,12 @@ export default function Chatbox() {
   return (
     <div className="whole-container">
       <div style={styles.container} className="big-container">
-        <h3>Welcome {parsedUser.name}</h3>
         <div style={styles.chatContainer}>
           <h1 style={styles.title}>Digital Lawyer</h1>
+          <h3 className="logged-user">
+            Welcome {parsedUser.name} , How can I help you?
+          </h3>
+
           <div id="chat-history" style={styles.chatHistory}>
             <div className="welcoming">
               Hi! Im the digital lawyer , please start the chat here ✍️
@@ -73,6 +76,7 @@ export default function Chatbox() {
           </div>
           <div style={{ display: "flex", gap: "10px" }}>
             <input
+              className="write-input"
               type="text"
               value={userInput}
               onChange={handleUserInput}
@@ -96,7 +100,7 @@ const styles = {
     background: "#242628",
   },
   chatContainer: {
-    width: "800px",
+    width: "1000px",
     padding: "50px",
     border: "none",
     borderRadius: "8px",
@@ -108,9 +112,10 @@ const styles = {
     marginBottom: "20px",
     color: "#70f6a1",
     fontWeight: "bold",
+    paddingTop: "30px",
   },
   chatHistory: {
-    height: "400px",
+    height: "500px",
     overflowY: "auto",
     border: "1px solid #ccc",
     padding: "10px",
@@ -123,6 +128,9 @@ const styles = {
     marginBottom: "10px",
     display: "flex",
     alignItems: "center",
+    letterSpacing: "1.5px",
+    padding: "5px",
+    lineHeight: "1.5",
   },
   messageRole: {
     fontWeight: "bold",
